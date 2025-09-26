@@ -1,6 +1,7 @@
 entryPoints:
   web:
     address: ":80"
+    reusePort: true
     http:
       redirections:
         entryPoint:
@@ -8,8 +9,28 @@ entryPoints:
           scheme: https
           permanent: true
 
+  webinternal:
+    address: ":80"
+    reusePort: true
+    http:
+      redirections:
+        entryPoint:
+          to: websecureinternal
+          scheme: https
+          permanent: true
+
   websecure:
     address: ":443"
+    reusePort: true
+    http:
+      tls:
+        certResolver: cloudflare
+        domains:
+          - main: "*.dhjensen.tech"
+
+  websecureinternal:
+    address: ":443"
+    reusePort: true
     http:
       tls:
         certResolver: cloudflare
