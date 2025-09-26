@@ -5,7 +5,7 @@
 ## .env example
 
 ```bash
-TRAEKFIK_VERSION=version
+TRAEFIK_VERSION=version
 CF_API_EMAIL=email
 CF_DNS_API_TOKEN=Token
 CF_ZONE_API_TOKEN=Token

@@ -2,7 +2,7 @@ name: Traefik
 
 services:
   traefik:
-    image: traefik:v${TRAEKFIK_VERSION}
+    image: traefik:v${TRAEFIK_VERSION}
     container_name: traefik
     volumes:
       - /etc/timezone:/etc/timezone:ro
@@ -19,16 +19,16 @@ services:
     networks:
       - traefik
       - traefik-backend
+      - nginx-proxy-manager_frontend
     restart: unless-stopped
     labels:
       - wud.tag.include=^v\d+\.\d+\.\d+$$
       - traefik.enable=true
       - traefik.http.routers.dashboard.rule=Host(`${DASHBOARD_FQDN}`)
       - traefik.http.routers.dashboard.service=api@internal
-      - traefik.http.routers.dashboard.entryPoints=websecureinternal
       - traefik.http.middlewares.dashboard-auth.basicauth.users=${DASHBOARD_USERS}
       - traefik.http.middlewares.ipallowlocal.ipAllowList.sourceRange=${TRAEFIK_IP_ALLOW_RANGES}
-      - traefik.http.routers.dashboard.middlewares=dashboard-auth@docker
+      - traefik.http.routers.dashboard.middlewares=dashboard-auth@docker,ipallowlocal@docker
 
 networks:
   traefik:
@@ -37,6 +37,9 @@ networks:
   traefik-backend:
     driver: bridge
     name: backend
+  nginx-proxy-manager_frontend:
+    driver: bridge
+    external: true
 
 volumes:
   traefik-ssl-certs:
