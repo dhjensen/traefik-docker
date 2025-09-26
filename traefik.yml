@@ -21,7 +21,8 @@ entryPoints:
     asDefault: true
 
 providers:
-  docker: {}
+  docker:
+    network: backend
 
 accessLog: {}
 
