@@ -23,8 +23,9 @@ services:
     labels:
       - wud.tag.include=^v\d+\.\d+\.\d+$$
       - traefik.enable=true
-      - traefik.http.routers.dashboard.rule=Host(`traefik-pc.dhjensen.tech`)
+      - traefik.http.routers.dashboard.rule=Host(`${DASHBOARD_FQDN}`)
       - traefik.http.routers.dashboard.service=api@internal
+      - traefik.http.routers.dashboard.entryPoints=websecureinternal
       - traefik.http.middlewares.dashboard-auth.basicauth.users=${DASHBOARD_USERS}
       - traefik.http.middlewares.ipallowlocal.ipAllowList.sourceRange=${TRAEFIK_IP_ALLOW_RANGES}
       - traefik.http.routers.dashboard.middlewares=dashboard-auth@docker
