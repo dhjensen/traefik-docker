@@ -19,7 +19,6 @@ services:
     networks:
       - traefik
       - traefik-backend
-      - nginx-proxy-manager_frontend
     restart: unless-stopped
     labels:
       - wud.tag.include=^v\d+\.\d+\.\d+$$
@@ -37,9 +36,6 @@ networks:
   traefik-backend:
     driver: bridge
     name: backend
-  nginx-proxy-manager_frontend:
-    driver: bridge
-    external: true
 
 volumes:
   traefik-ssl-certs:
