@@ -27,7 +27,7 @@ services:
       - traefik.http.routers.dashboard.service=api@internal
       - traefik.http.middlewares.dashboard-auth.basicauth.users=${DASHBOARD_USERS}
       - traefik.http.middlewares.ipallowlocal.ipAllowList.sourceRange=${TRAEFIK_IP_ALLOW_RANGES}
-      - traefik.http.routers.dashboard.middlewares=dashboard-auth@docker,ipallowlocal@docker
+      - traefik.http.routers.dashboard.middlewares=dashboard-auth@docker
 
 networks:
   traefik:
