@@ -1,0 +1,6 @@
+http:
+  serversTransports:
+    speedtest-openspeedtest-transport:
+      disableHTTP2: true
+      forwardingTimeouts:
+        responseHeaderTimeout: "999s"
