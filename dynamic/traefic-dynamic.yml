@@ -4,3 +4,12 @@ http:
       disableHTTP2: true
       forwardingTimeouts:
         responseHeaderTimeout: "999s"
+
+tls:
+  stores:
+    default:
+      defaultGeneratedCert:
+        resolver: cloudflare
+        domain:
+          - main: "*.dhjensen.tech"
+          - sans: []
