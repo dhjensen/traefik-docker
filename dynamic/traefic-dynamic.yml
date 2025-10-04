@@ -11,5 +11,4 @@ tls:
       defaultGeneratedCert:
         resolver: cloudflare
         domain:
-          - main: "*.dhjensen.tech"
-          - sans: []
+          main: "*.dhjensen.tech"
