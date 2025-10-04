@@ -10,9 +10,14 @@ CF_API_EMAIL=email
 CF_DNS_API_TOKEN=Token
 CF_ZONE_API_TOKEN=Token
 DASHBOARD_USERS=User hashes
-TRAEFIK_IP_ALLOW_RANGES=IP ranges
+DASHBOARD_FQDN=FQDN
+DASHBOARD_IPALLOWLIST=IP ranges
 ```
 
 ## traefik.yml
 
-Have the static configuration for Traefik
+Static Traefik configuration
+
+## dynamic/traefik-dynamic.yml
+
+Dynamic Traefik configuration

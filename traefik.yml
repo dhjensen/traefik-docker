@@ -20,8 +20,6 @@ entryPoints:
         certResolver: cloudflare
         domains:
           - main: "*.dhjensen.tech"
-      middlewares:
-        - ipallowlocal@docker
     asDefault: true
 
 providers:
@@ -29,6 +27,8 @@ providers:
     network: backend
     defaultRule: "Host(`{{ .ContainerName }}.dhjensen.tech`)"
     exposedByDefault: false
+  file:
+    directory: "/etc/traefik/dynamic"
 
 accessLog: {}
 

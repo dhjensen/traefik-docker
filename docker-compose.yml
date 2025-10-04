@@ -8,6 +8,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./dynamic/:/etc/traefik/dynamic:ro
       - traefik-ssl-certs:/ssl-certs:rw
     environment:
       - CF_API_EMAIL
@@ -26,8 +27,8 @@ services:
       - traefik.http.routers.dashboard.rule=Host(`${DASHBOARD_FQDN}`)
       - traefik.http.routers.dashboard.service=api@internal
       - traefik.http.middlewares.dashboard-auth.basicauth.users=${DASHBOARD_USERS}
-      - traefik.http.middlewares.ipallowlocal.ipAllowList.sourceRange=${TRAEFIK_IP_ALLOW_RANGES}
-      - traefik.http.routers.dashboard.middlewares=dashboard-auth@docker
+      - traefik.http.middlewares.dashboard-ipallowlist.ipAllowList.sourceRange=${DASHBOARD_IPALLOWLIST}
+      - traefik.http.routers.dashboard.middlewares=dashboard-auth@docker, dashboard-ipallowlist@docker
 
 networks:
   traefik:
