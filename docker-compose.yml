@@ -27,7 +27,7 @@ services:
       - traefik.http.routers.dashboard.rule=Host(`${DASHBOARD_FQDN}`)
       - traefik.http.routers.dashboard.service=api@internal
       - traefik.http.middlewares.dashboard-auth.basicauth.users=${DASHBOARD_USERS}
-      - traefik.http.middlewares.dashboard-ipallowlist.ipallowlist=${DASHBOARD_IPALLOWLIST}
+      - traefik.http.middlewares.dashboard-ipallowlist.ipAllowList.sourceRange=${DASHBOARD_IPALLOWLIST}
       - traefik.http.routers.dashboard.middlewares=dashboard-auth@docker, dashboard-ipallowlist@docker
 
 networks:
