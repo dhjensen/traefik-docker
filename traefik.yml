@@ -44,5 +44,13 @@ certificatesResolvers:
       dnsChallenge:
         provider: cloudflare
 
+tls:
+  stores:
+    default:
+      defaultGeneratedCert:
+        resolver: cloudflare
+        domain:
+          main: "*.dhjensen.tech"
+
 log:
   level: info
