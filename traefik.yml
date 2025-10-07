@@ -20,6 +20,13 @@ entryPoints:
         certResolver: cloudflare
         domains:
           - main: "*.dhjensen.tech"
+            sans:
+            - "node1-daniel-pc.vault.dhjensen.tech"
+            - "node2-daniel-pc.vault.dhjensen.tech"
+            - "node3-daniel-pc.vault.dhjensen.tech"
+            - "node1-pi2.vault.dhjensen.tech"
+            - "node2-pi2.vault.dhjensen.tech"
+            - "node3-pi2.vault.dhjensen.tech"
     asDefault: true
 
 providers:
