@@ -5,13 +5,13 @@
 ## .env example
 
 ```bash
-TRAEFIK_VERSION=version
-CF_API_EMAIL=email
-CF_DNS_API_TOKEN=Token
-CF_ZONE_API_TOKEN=Token
-DASHBOARD_USERS=User hashes
-DASHBOARD_FQDN=FQDN
-IPALLOWLIST=IP ranges
+TRAEFIK_VERSION=3.5.4
+CF_API_EMAIL=dhjen@outlook.com
+CF_DNS_API_TOKEN=token
+CF_ZONE_API_TOKEN=token
+DASHBOARD_USERS=User hash
+DASHBOARD_FQDN="traefik.dhjensen.tech"
+IPALLOWLIST='192.168.86.0/24,172.23.0.1,79.76.106.250'
 ```
 
 ## traefik.yml
